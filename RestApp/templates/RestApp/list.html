@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMPLOYEE LIST</title>
+</head>
+<body>
+    <center>
+        <h1>EMPLOYEES LIST</h1>
+    {% if e %}
+    <table border="2">
+        <thead>
+            <th>ID</th>
+            <th>EMPLOYEE NAME</th>
+            <th>ACTION</th>
+
+
+        </thead>
+        {% for i in e %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.employee_name}}</td>
+            <td><a href="{% url 'RestApp:update' i.id %}">UPDATE</a></td>
+            <td><a href="{% url 'RestApp:delete' i.id %}">DELETE</a></td>
+
+        </tr>
+        {% endfor %}
+
+    </table>
+    {% endif %}
+
+</center>
+</body>
+</html>
